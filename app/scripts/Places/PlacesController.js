@@ -13,6 +13,7 @@ angular.module('SpringApp2')
         $scope.corners = appSettings.createCorners($scope.places);
         $scope.map = appSettings.createMap($scope.places);
 
+        console.log($scope.map);
 
       })
   });

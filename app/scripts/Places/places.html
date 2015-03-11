@@ -1,4 +1,6 @@
 <ion-view title="Places">
   <ion-content data-tap-disabled="true" scroll="false">
+    <leaflet defaults="map.defaults" center="map.center" layers="map.layers" markers="map.markers" data-ng-if="map"
+             style="width: 100%; height: 100%"></leaflet>
   </ion-content>
 </ion-view>
