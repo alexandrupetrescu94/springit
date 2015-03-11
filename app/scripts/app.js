@@ -6,9 +6,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('SpringApp2', ['ionic', 'config'])
+angular.module('SpringApp2', ['ionic', 'config', 'SpringSettings'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, appSettings) {
+
+    appSettings.initFb();
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -31,9 +34,17 @@ angular.module('SpringApp2', ['ionic', 'config'])
       controller: 'MenuController'
     })
 
+    .state('login', {
+      url: '/login',
+      templateUrl: 'scripts/Login/login.html',
+      controller: 'LoginController'
+    })
+
+    ;
+
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/menu');
+  $urlRouterProvider.otherwise('/login');
 });
 
