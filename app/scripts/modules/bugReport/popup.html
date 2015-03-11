@@ -1,0 +1,35 @@
+<div class=reportContainer>
+    <form ng-init=>
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Title</span>
+                <input ng-model="formData.title" type="text" placeholder="Enter a title for the bug">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Priority
+                </div>
+                <select ng-model="formData.type">
+                    <option selected disabled hidden value=''></option>
+                    <option value="blocker">Blocker</option>
+                    <option value="critical">Critical</option>
+                    <option value="major">Major</option>
+                    <option value="minor">Minor</option>
+                    <option value="trivial">Trivial</option>
+                </select>
+            </label>
+            <label class="item">
+                <div>
+                    Description
+                </div>
+
+                <textarea ng-model="formData.description" placeholder="Enter a short description for the bug"></textarea>
+            </label>
+        </div>
+
+        <div class=buttonContainer>
+            <button class="button button-clear button-stable" ng-click="closePopup()">Cancel</button>
+            <button class="button button-clear button-positive" ng-click="sendBug()">Send bug</button>
+        </div>
+    </form>
+</div>
