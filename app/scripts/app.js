@@ -34,6 +34,12 @@ angular.module('SpringApp2', ['ionic', 'config', 'SpringSettings'])
       controller: 'MenuController'
     })
 
+    .state('menu.springFeed', {
+      url: '/feed',
+      templateUrl: 'scripts/Menu/SpringFeed/springFeed.html',
+      controller: 'SpringFeedController'
+    })
+
     .state('login', {
       url: '/login',
       templateUrl: 'scripts/Login/login.html',

@@ -12,7 +12,7 @@ angular.module('SpringApp2')
                 .success(function(user) {
                   console.log(user);
                   $rootScope.user = user;
-                  $state.go('menu');
+                  $state.go('menu.springFeed');
                 })
             },
             function() {

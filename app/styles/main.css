@@ -3,13 +3,15 @@
   width: 100%;
   height: 180px;
   text-align:center;
+  background-color: #0078A8;
 }
 
 .profile-photo
 {
   width:120px;
   height:120px;
-  top:16px;
+  margin-top:16px;
+  border-radius: 100%;
 }
 
 .user-name {
