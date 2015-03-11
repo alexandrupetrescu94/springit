@@ -3,7 +3,7 @@
  */
 
 angular.module('SpringApp2')
-  .controller('PlacesController', function($scope, OpenFB, appSettings) {
+  .controller('PlacesController', function($scope, OpenFB, appSettings, leafletData) {
 
     OpenFB.get('/me', {fields: 'tagged_places'})
       .success(function(data) {
@@ -13,7 +13,6 @@ angular.module('SpringApp2')
         $scope.corners = appSettings.createCorners($scope.places);
         $scope.map = appSettings.createMap($scope.places);
 
-        console.log($scope);
 
       })
   });
