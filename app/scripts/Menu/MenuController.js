@@ -2,7 +2,7 @@
  * Created by andrei.antal on 11/03/15.
  */
 angular.module('SpringApp2')
-.controller('MenuController',function($rootScope, $scope, OpenFB){
+.controller('MenuController',function($rootScope, $scope, OpenFB, $state){
     console.log('in menu controller')
 
     if(!$rootScope.user)
@@ -16,6 +16,7 @@ angular.module('SpringApp2')
     {
       $scope.user = $rootScope.user;
     }
+
 
     $scope.logOut = function(){
       OpenFB.logout();

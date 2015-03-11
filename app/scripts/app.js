@@ -8,9 +8,29 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('SpringApp2', ['ionic', 'config', 'SpringSettings'])
 
-.run(function($ionicPlatform, appSettings) {
+.run(function($ionicPlatform, appSettings, $rootScope, $state, OpenFB) {
 
     appSettings.initFb();
+
+    $rootScope.$on("$stateChangeStart", function(event, toState) {
+      if ((toState.name != 'login' && toState.name != 'logout')
+        && window.sessionStorage.fbtoken === 'undefined') {
+        event.preventDefault();
+        $state.go("login");
+      }
+
+      if (!$rootScope.user) {
+        OpenFB.get('/me', {fields: appSettings.userFields})
+          .success(function(user) {
+            $rootScope.user = user;
+            console.log(user);
+          })
+          .error(function() {
+            $state.go("login");
+          })
+        ;
+      }
+    });
 
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -38,6 +58,11 @@ angular.module('SpringApp2', ['ionic', 'config', 'SpringSettings'])
       url: '/feed',
       templateUrl: 'scripts/Menu/SpringFeed/springFeed.html',
       controller: 'SpringFeedController'
+    })
+
+    .state('menu.profile', {
+      url: '/profile',
+      templateUrl: 'scripts/Menu/profile.html'
     })
 
     .state('login', {
