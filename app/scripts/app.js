@@ -65,6 +65,12 @@ angular.module('SpringApp2', ['ionic', 'config', 'SpringSettings'])
       templateUrl: 'scripts/Menu/profile.html'
     })
 
+    .state('menu.places', {
+      url: '/places',
+      templateUrl: 'scripts/Places/places.html',
+      controller: 'PlacesController'
+    })
+
     .state('login', {
       url: '/login',
       templateUrl: 'scripts/Login/login.html',
