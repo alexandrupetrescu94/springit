@@ -1,29 +1,48 @@
-<ion-side-menus>
+<style>
 
+</style>
+
+
+<ion-side-menus>
   <ion-pane ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
+    <ion-nav-bar class="bar-calm">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+      <h1 class="title">{{viewTitle}}</h1>
     </ion-nav-bar>
-    <!--<ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>-->
+    <!--<ion-nav-view animation="slide-left-right"></ion-nav-view>-->
   </ion-pane>
 
   <ion-side-menu side="left">
-    <header class="bar bar-header bar-stable">
-      <h1 class="title">Left</h1>
+    <header class="bar bar-header bar-positive">
+      <h1 class="title">Spring IT</h1>
+
     </header>
     <ion-content class="has-header">
-      <ion-list>
-        <ion-item nav-clear menu-close ng-click="login()">
-          Login
+
+      <div class="side-menu-header" ng-style="getBackgroundStyle(user.cover.source)">
+        <img ng-src="https://graph.facebook.com/{{ user.id }}/picture?width=120&height=120" class="profile-photo">
+        <p class="user-name">{{user.name}}</p>
+      </div>
+
+      <ion-list class="side-menu-list">
+        <ion-item nav-clear menu-close ui-sref="app.springItFeed">
+          <i class="icon ion-clipboard"></i>&nbsp;&nbsp;SpringIT feed
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/search">
-          Search
+        <ion-item nav-clear menu-close ui-sref="app.checkedInPlaces">
+          <i class="icon ion-map"></i>&nbsp;&nbsp;Checked in places
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/browse">
-          Browse
+        <ion-item nav-clear menu-close ui-sref="app.myFeed">
+          <i class="icon ion-star"></i>&nbsp;&nbsp;My feed
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          Playlists
+        <ion-item nav-clear menu-close ui-sref="app.profile">
+          <i class="icon ion-person"></i>&nbsp;&nbsp;Profile
+        </ion-item>
+        <ion-item nav-clear menu-close report-bug>
+          <i class="icon ion-bug"></i>&nbsp;&nbsp;Report bug
+        </ion-item>
+        <ion-item nav-clear menu-close ng-click="logOut()">
+          <i class="icon ion-log-out"></i>&nbsp;&nbsp;Logout
         </ion-item>
       </ion-list>
     </ion-content>

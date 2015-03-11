@@ -1,1 +1,28 @@
 /* Your application styles go here */
+.side-menu-header{
+  width: 100%;
+  height: 180px;
+  text-align:center;
+}
+
+.profile-photo
+{
+  width:120px;
+  height:120px;
+  top:16px;
+}
+
+.user-name {
+  position: absolute;
+  width:100%;
+  font-size:16px;
+  top: 150px;
+}
+
+.side-menu-list .item {
+  padding: 12px 16px;
+}
+
+.side-menu-list .item a{
+  padding: 0;
+}
